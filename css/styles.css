@@ -1,0 +1,140 @@
+body {
+  background: #f2f2f2;
+}
+
+.left { float: left; }
+.right { float: right; }
+.main-content .clear { clear: both; }
+
+.btn {
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 2px 2px 5px 1px #adadad;
+  box-shadow: 2px 2px 5px 1px #adadad;
+
+  background: green; // should be gradient
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+}
+
+.main-header,
+.main-content {
+  margin: 0 auto;
+  padding: 20px 15px;
+  width: 770px;
+}
+
+.main-header {
+  height: 100px;
+  padding-bottom: 10px;
+  padding-left: 0;
+  padding-top: 10px;
+}
+
+.main-content {
+  background: #fff;
+  border: 1px solid #ADADAD;
+  height: 500px;
+}
+
+
+
+/* left side */
+.main-content > .left {
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 2px 2px 5px 1px #adadad;
+  box-shadow: 2px 2px 5px 1px #adadad;
+
+  display: inline-block;
+  width: 382px;
+}
+
+.left .box {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.js-column-1 {
+  display: inline-block;
+  margin: 0 0 5px;
+  text-align: right;
+  width: 80px;
+}
+
+.json-items .js-column-1 {
+  vertical-align: top;
+}
+
+.js-column-2 {
+  display: inline-block;
+  margin: 0 0 0 5px;;
+}
+
+.todo-form {
+  margin: 10px 0;
+}
+
+.todo-form .js-item-input,
+.json-items textarea {
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #f2f2f2;
+  padding: 5px;
+  width: 180px;
+}
+
+.json-items textarea {
+  margin: 0 0 10px;
+}
+
+
+
+/* right side */
+.main-content > .right {
+  display: inline-block;
+  width: 348px;
+}
+
+.right > p {
+  border-bottom: 1px solid #333;
+  margin: 0;
+  padding: 0 0 10px;
+}
+
+/* list styling */
+.todo-items,
+.todo-items li {
+  margin: 0 auto;
+  padding: 0;
+  list-style-type: none;
+  list-style-position: inside;
+  list-style-image: none;
+}
+
+.todo-items li {
+  border-bottom-color: #cecece;
+  border-bottom-style: dashed;
+  border-bottom-width: thin;
+  padding: 10px 0;
+}
+
+.todo-items .list-item-position  {
+  background: #FCFFAD;
+  margin: 5px 10px 5px;
+  padding: 5px;
+}
+
+.list-item-title {
+  color: #ffa600;
+}
+
+.list-item-title-delete {
+  color: #5a7ee8;
+}
+
+.list-item-title-delete:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
