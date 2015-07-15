@@ -18,7 +18,23 @@
       self.$primaryBtn.addEventListener( 'click', function ( ) {
         handler( self.$formInput.value );
       } );
+    } else if (event === 'itemRemove') {
+      self.$ul.addEventListener( 'click', function ( event ) {
+        var li = event.target.parentElement;
+
+        handler( {
+          id: self._itemId( li )
+        } );
+      } );
     }
+  };
+
+  View.prototype._itemId = function ( element ) {
+    if ( element && element.dataset && !element.dataset.id ) {
+      alert( 'This list item has no id.' );
+    }
+
+    return element.dataset.id;
   };
 
   View.prototype.generateListItem = function ( newItemData ) {
@@ -44,6 +60,19 @@
     li.appendChild( spanDelete );
 
 		return li;
+  };
+
+  View.prototype.removeListItem = function ( id ) {
+    var parent = this.$ul;
+    var allListItems = document.querySelectorAll( '[data-id]' );
+
+    for (var i = 0; i < allListItems.length; i++) {
+      var li = allListItems[i];
+
+      if ( li.getAttribute( 'data-id' ) === id ) {
+        parent.removeChild( allListItems[i] );
+      }
+    }
   };
 
   window.app = window.app || {};

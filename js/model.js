@@ -41,6 +41,21 @@
 		callback.call(this, [newItemData]);
 	};
 
+	Model.prototype.remove = function ( id, callback ) {
+		var data = JSON.parse( localStorage['todos-truecar'] );
+		var todos = data.todos;
+
+		for (var i = 0; i < todos.length; i++) {
+			if ( todos[i].id == parseInt( id ) ) {
+				todos.splice(i, 1);
+				break;
+			}
+		}
+
+		localStorage['todos-truecar'] = JSON.stringify( data );
+		callback.call( this, id );
+	};
+
 	window.app = window.app || {};
 	window.app.Model = Model;
 

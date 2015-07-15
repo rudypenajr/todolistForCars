@@ -146,7 +146,6 @@
 				removeListItem( targetId );
 			}
 		}
-
 	};
 
 	// rather than loop through list items and attach event handler

@@ -10,9 +10,13 @@
 		self.view.bind( 'newTodo', function ( title ) {
 			self.addItem( title );
 		} );
+
+		self.view.bind( 'itemRemove', function ( item ) {
+			self.removeItem( item.id );
+		});
 	}
 
-	Controller.prototype.addItem = function (title) {
+	Controller.prototype.addItem = function ( title ) {
 		var self = this;
 
 		if (title.trim() === '') {
@@ -26,6 +30,14 @@
 			// build list item
 			var li = self.view.generateListItem( newItemData );
 			self.view.$ul.appendChild( li );
+		});
+	};
+
+	Controller.prototype.removeItem = function ( id ) {
+		var self = this;
+
+		self.model.remove( id, function ( id ) {
+			self.view.removeListItem( id );
 		});
 	};
 
