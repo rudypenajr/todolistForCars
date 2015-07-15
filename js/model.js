@@ -28,18 +28,18 @@
 	};
 
 	Model.prototype.save = function ( newItemData, callback, id ) {
-			var data = JSON.parse( localStorage['todos-truecar'] );
-			var todos = data.todos;
+		var data = JSON.parse( localStorage['todos-truecar'] );
+		var todos = data.todos;
 
-			callback = callback || function () {};
+		callback = callback || function () {};
 
-			// Generate an ID
-			newItemData.id = new Date().getTime();
+		// Generate an ID
+		newItemData.id = new Date().getTime();
 
-			todos.push( newItemData );
-			localStorage['todos-truecar'] = JSON.stringify(data);
-			callback.call(this, [newItemData]);
-		};
+		todos.push( newItemData );
+		localStorage['todos-truecar'] = JSON.stringify(data);
+		callback.call(this, [newItemData]);
+	};
 
 	window.app = window.app || {};
 	window.app.Model = Model;

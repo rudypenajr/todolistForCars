@@ -19,9 +19,13 @@
 			return;
 		}
 
-		self.model.create(title, function () {
-			self.view.render('clearNewTodo');
-			self._filter(true);
+		self.model.create(title, function ( newItemData ) {
+			// clear out old input
+			self.view.$formInput.value = '';
+
+			// build list item
+			var li = self.view.generateListItem( newItemData );
+			self.view.$ul.appendChild( li );
 		});
 	};
 
