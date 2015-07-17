@@ -52,6 +52,10 @@
 
 		self.model.remove( id, function ( id ) {
 			self.view.removeListItem( id );
+
+			// fix up textarea
+			var updatedJSON = self.model.readJSON();
+			self.view.$jsonBox.innerText = updatedJSON;
 		});
 	};
 
