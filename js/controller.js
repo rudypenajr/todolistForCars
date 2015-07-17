@@ -40,6 +40,10 @@
 			// build list item
 			var li = self.view.generateListItem( newItemData );
 			self.view.$ul.appendChild( li );
+
+			// fix up textarea
+			var updatedJSON = self.model.readJSON();
+			self.view.$jsonBox.innerText = updatedJSON;
 		});
 	};
 
