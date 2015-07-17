@@ -16,6 +16,13 @@
 		});
 	}
 
+	Controller.prototype.addAll = function ( ) {
+		var self = this;
+		var allItems = self.model.read();
+
+		self.view.renderAll( allItems );
+	};
+
 	Controller.prototype.addItem = function ( title ) {
 		var self = this;
 

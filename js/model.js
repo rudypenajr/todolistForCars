@@ -16,6 +16,13 @@
 		}
 	}
 
+	Model.prototype.read = function ( ) {
+		var data = JSON.parse( localStorage['todos-truecar'] );
+		data = data.todos;
+
+		return data;
+	};
+
 	Model.prototype.create = function ( title, callback ) {
 		title = title || '';
 		callback = callback || function () {};

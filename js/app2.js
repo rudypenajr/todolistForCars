@@ -10,4 +10,6 @@
 
 	var todo = new Todo('todos-truecar');
 
+	// append existing data
+	todo.controller.addAll();
 })();

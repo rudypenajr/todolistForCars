@@ -29,6 +29,15 @@
     }
   };
 
+  View.prototype.renderAll = function ( allListItems ) {
+    for (var i = 0; i < allListItems.length; i++) {
+      var li = allListItems[i];
+      var html = this.generateListItem( li );
+
+      this.$ul.appendChild( html );
+    }
+  };
+  
   View.prototype._itemId = function ( element ) {
     if ( element && element.dataset && !element.dataset.id ) {
       alert( 'This list item has no id.' );
@@ -39,6 +48,10 @@
 
   View.prototype.generateListItem = function ( newItemData ) {
     var data = newItemData[0];
+    if ( !data ) {
+      data = newItemData;
+    }
+
     var liLength = this.$ul.childElementCount + 1;
     var li = document.createElement( 'li' );
     li.setAttribute( 'data-id', data.id );
