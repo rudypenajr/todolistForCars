@@ -19,8 +19,11 @@
 	Controller.prototype.addAll = function ( ) {
 		var self = this;
 		var allItems = self.model.read();
+		var allItemsJSON = self.model.readJSON();
 
 		self.view.renderAll( allItems );
+		// populate textarea with json of titles
+		self.view.$jsonBox.innerText = allItemsJSON;
 	};
 
 	Controller.prototype.addItem = function ( title ) {

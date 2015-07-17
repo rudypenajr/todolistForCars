@@ -23,6 +23,20 @@
 		return data;
 	};
 
+	Model.prototype.readJSON = function ( ) {
+		var json = [];
+		var data = JSON.parse( localStorage['todos-truecar'] );
+		data = data.todos;
+
+		for (var i = 0; i < data.length; i++) {
+			var title = data[i].title;
+
+			json.push( title );
+		}
+
+		return JSON.stringify( json );
+	};
+
 	Model.prototype.create = function ( title, callback ) {
 		title = title || '';
 		callback = callback || function () {};
