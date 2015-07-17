@@ -1,5 +1,3 @@
-/*global qs, qsa, $on, $parent, $delegate */
-
 (function (window) {
   'use strict';
 
@@ -37,7 +35,7 @@
       this.$ul.appendChild( html );
     }
   };
-  
+
   View.prototype._itemId = function ( element ) {
     if ( element && element.dataset && !element.dataset.id ) {
       alert( 'This list item has no id.' );

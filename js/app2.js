@@ -1,4 +1,3 @@
-/*global app, $on */
 (function () {
 	'use strict';
 

@@ -53,6 +53,11 @@
 		self.model.remove( id, function ( id ) {
 			self.view.removeListItem( id );
 
+			// redraw list
+			var updateData = self.model.read();
+			self.view.$ul.innerHTML = '';
+			self.view.renderAll( updateData );
+
 			// fix up textarea
 			var updatedJSON = self.model.readJSON();
 			self.view.$jsonBox.innerText = updatedJSON;
