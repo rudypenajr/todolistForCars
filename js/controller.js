@@ -40,7 +40,8 @@
 
 		self.view.renderAll( allItems );
 		// populate textarea with json of titles
-		self.view.$jsonBox.innerText = allItemsJSON;
+		self.view.$jsonBox.value = '';
+		self.view.$jsonBox.value = allItemsJSON;
 	};
 
 	Controller.prototype.addItem = function ( title ) {
@@ -59,9 +60,10 @@
 			self.view.$ul.appendChild( li );
 
 			// fix up textarea
-			debugger;
 			var updatedJSON = self.model.readJSON();
-			self.view.$jsonBox.innerText = updatedJSON;
+			// self.view.$jsonBox.innerText = updatedJSON;
+			self.view.$jsonBox.value = '';
+			self.view.$jsonBox.value = updatedJSON;
 		});
 	};
 
@@ -78,7 +80,9 @@
 
 			// fix up textarea
 			var updatedJSON = self.model.readJSON();
-			self.view.$jsonBox.innerText = updatedJSON;
+			// self.view.$jsonBox.innerText = updatedJSON;
+			self.view.$jsonBox.value = '';
+			self.view.$jsonBox.value = updatedJSON;
 		});
 	};
 
