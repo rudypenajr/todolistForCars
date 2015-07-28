@@ -7,6 +7,7 @@
     this.$primaryBtn = document.getElementsByClassName( 'btn-primary' )[0];
     this.$jsonBox = document.getElementsByTagName( 'textarea' )[0];
     this.$ul = document.getElementsByClassName( 'todo-items' )[0];
+    this.$secondaryBtn = document.getElementsByClassName( 'btn-secondary' )[0];
   }
 
   View.prototype.bind = function (event, handler) {
@@ -17,8 +18,8 @@
         handler( self.$formInput.value );
       } );
 
-      self.$formInput.addEventListener( 'keypress', function ( e ) {
-        var key = e.which || e.keyCode;
+      self.$formInput.addEventListener( 'keypress', function ( event ) {
+        var key = event.which || event.keyCode;
         if (key === 13) { // 13 is enter
           // code for enter
           handler( self.$formInput.value );
@@ -31,6 +32,17 @@
         handler( {
           id: self._itemId( li )
         } );
+      } );
+    } else if (event === 'emptyingTextarea') {
+      self.$jsonBox.addEventListener( 'keyup', function ( event ) {
+        var keyCode = event.keyCode;
+
+        handler( keyCode );
+      } );
+    } else if ( event === 'loadJSON' ) {
+      self.$secondaryBtn.addEventListener( 'click', function ( event ) {
+        var json = self.$jsonBox.value;
+        handler( json );
       } );
     }
   };
@@ -92,6 +104,10 @@
         parent.removeChild( allListItems[i] );
       }
     }
+  };
+
+  View.prototype.removeAll = function ( ) {
+    this.$ul.innerHTML = '';
   };
 
   window.app = window.app || {};

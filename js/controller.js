@@ -14,6 +14,23 @@
 		self.view.bind( 'itemRemove', function ( item ) {
 			self.removeItem( item.id );
 		});
+
+		self.view.bind( 'emptyingTextarea', function ( keyCode ) {
+			// content was 'cut' -- ctrl + x
+			if ( keyCode === 91 ) {
+				// ctrl + x -- 'cut' method
+				self.model.removeAll();
+				self.view.removeAll();
+			}
+		} );
+
+		self.view.bind( 'loadJSON', function ( json ) {
+			var data = JSON.parse( json );
+
+			for (var i = 0; i < data.length; i++) {
+				self.addItem( data[i] );
+			}
+		} );
 	}
 
 	Controller.prototype.addAll = function ( ) {
@@ -42,6 +59,7 @@
 			self.view.$ul.appendChild( li );
 
 			// fix up textarea
+			debugger;
 			var updatedJSON = self.model.readJSON();
 			self.view.$jsonBox.innerText = updatedJSON;
 		});

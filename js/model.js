@@ -16,6 +16,20 @@
 		}
 	}
 
+	Model.prototype.verifyLocalStorage = function ( name ) {
+		if ( !name ) {
+			alert( 'Please pass in a name for your localStorage.' );
+		}
+		
+		if (!localStorage[name]) {
+			var data = {
+				todos: []
+			};
+
+			localStorage[name] = JSON.stringify(data);
+		}
+	};
+
 	Model.prototype.read = function ( ) {
 		var data = JSON.parse( localStorage['todos-truecar'] );
 		data = data.todos;
@@ -49,8 +63,16 @@
 	};
 
 	Model.prototype.save = function ( newItemData, callback, id ) {
-		var data = JSON.parse( localStorage['todos-truecar'] );
-		var todos = data.todos;
+		var data, todos;
+		if ( localStorage['todos-truecar'] ) {
+			data = JSON.parse( localStorage['todos-truecar'] );
+			todos = data.todos;
+		} else {
+			this.verifyLocalStorage( 'todos-truecar' );
+			data = {};
+			data.todos = [];
+			todos = data.todos;
+		}
 
 		callback = callback || function () {};
 
@@ -75,6 +97,10 @@
 
 		localStorage['todos-truecar'] = JSON.stringify( data );
 		callback.call( this, id );
+	};
+
+	Model.prototype.removeAll = function ( ) {
+		localStorage.clear();
 	};
 
 	window.app = window.app || {};
