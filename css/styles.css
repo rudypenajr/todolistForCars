@@ -20,12 +20,18 @@ body {
   font-family: Arial;
   color: #ffffff;
   font-size: 12px;
-  padding: 5px;
+  font-weight: bold;
+  padding: 8px 15px;
   text-decoration: none;
 }
 .btn:hover {
   cursor: pointer;
   text-decoration: none;
+}
+
+.btn-secondary {
+  font-size: 14px;
+  padding: 8px 20px;
 }
 
 .main-header,
@@ -56,6 +62,16 @@ body {
   border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 2px 2px 5px 1px #adadad;
   box-shadow: 2px 2px 5px 1px #adadad;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,e5e5e5+100;White+3D */
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(229,229,229,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(229,229,229,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 
   display: inline-block;
   width: 382px;
@@ -95,8 +111,16 @@ body {
   width: 180px;
 }
 
+.todo-form .js-item-input {
+  margin-right: 10px;
+  width: 150px;
+}
+
 .json-items textarea {
+  font-size: 14px;
+  height: 80px;
   margin: 0 0 10px;
+  width: 230px;
 }
 
 
@@ -131,7 +155,17 @@ body {
 }
 
 .todo-items .list-item-position  {
-  background: #FCFFAD;
+  /*background: #FCFFAD;*/
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fefcea+0,e8e1be+100 */
+  background: rgb(254,252,234); /* Old browsers */
+  background: -moz-linear-gradient(top,  rgba(254,252,234,0.3) 0%, rgba(232,225,190,0.3) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(254,252,234,0.3)), color-stop(100%,rgba(232,225,190,0.3))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(254,252,234,0.3) 0%,rgba(232,225,190,0.3) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(254,252,234,0.3) 0%,rgba(232,225,190,0.3) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(254,252,234,0.3) 0%,rgba(232,225,190,0.3) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(254,252,234,0.3) 0%,rgba(232,225,190,0.3) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefcea', endColorstr='#e8e1be',GradientType=0 ); /* IE6-9 */
+
   margin: 5px 10px 5px;
   padding: 5px;
 }
@@ -141,7 +175,7 @@ body {
 }
 
 .list-item-title-delete {
-  color: #5a7ee8;
+  color: #1C86EE;
 }
 
 .list-item-title-delete:hover {
