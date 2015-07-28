@@ -16,6 +16,14 @@
       self.$primaryBtn.addEventListener( 'click', function ( ) {
         handler( self.$formInput.value );
       } );
+
+      self.$formInput.addEventListener( 'keypress', function ( e ) {
+        var key = e.which || e.keyCode;
+        if (key === 13) { // 13 is enter
+          // code for enter
+          handler( self.$formInput.value );
+        }
+      } );
     } else if (event === 'itemRemove') {
       self.$ul.addEventListener( 'click', function ( event ) {
         var li = event.target.parentElement;
